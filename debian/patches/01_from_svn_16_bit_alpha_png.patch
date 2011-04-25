@@ -1,0 +1,33 @@
+Index: fop-0.95.dfsg/src/java/org/apache/fop/pdf/AlphaRasterImage.java
+===================================================================
+--- fop-0.95.dfsg.orig/src/java/org/apache/fop/pdf/AlphaRasterImage.java	2008-07-31 16:02:57.000000000 +0200
++++ fop-0.95.dfsg/src/java/org/apache/fop/pdf/AlphaRasterImage.java	2010-03-06 21:02:05.527650998 +0100
+@@ -48,6 +48,9 @@
+      */
+     public AlphaRasterImage(String k, Raster alpha) {
+         this.key = k;
++        //Enable the commented line below if 16-bit alpha channels are desired.
++        //Otherwise, we compress the alpha channel to 8 bit which should be sufficient.
++        //this.bitsPerComponent = alpha.getSampleModel().getSampleSize(0);
+         this.bitsPerComponent = 8;
+         this.colorSpace = new PDFDeviceColorSpace(PDFDeviceColorSpace.DEVICE_GRAY);
+         if (alpha == null) {
+@@ -148,6 +151,18 @@
+                 alpha.getDataElements(0, y, w, 1, line);
+                 out.write(line);
+             }
++        } else if (dataType == DataBuffer.TYPE_USHORT) {
++            short[] sline = new short[nbands * w];
++            byte[] line = new byte[nbands * w];
++            for (int y = 0; y < h; y++) {
++                alpha.getDataElements(0, y, w, 1, sline);
++                for (int i = 0; i < w; i++) {
++                    //this compresses a 16-bit alpha channel to 8 bits!
++                    //we probably don't ever need a 16-bit channel
++                    line[i] = (byte)(sline[i] >> 8);
++                }
++                out.write(line);
++            }
+         } else if (dataType == DataBuffer.TYPE_INT) {
+             //Is there an better way to get a 8bit raster from a TYPE_INT raster?
+             int shift = 24;

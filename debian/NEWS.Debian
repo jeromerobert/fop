@@ -1,0 +1,7 @@
+fop (0.93.dfsg.1-1) unstable; urgency=low
+
+  * fop shell script comes with java.awt.headless set to true.
+  * fop has been built with jdk6 (ibm), JAI and JIMI support.
+
+ -- Arnaud Vandyck <avdyk@debian.org>  Thu, 10 May 2007 12:50:20 +0200
+

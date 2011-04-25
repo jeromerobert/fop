@@ -1,0 +1,149 @@
+=head1 NAME
+
+fop -- Command line wrapper for the java version of fop.
+
+=head1 SYNOPSIS
+
+B<fop> [options] [-fo|-xml] F<infile> [-xsl file]
+    [-awt|-pdf|-mif|-pcl|-txt|-print] F<outfile>
+
+=head1 OPTIONS
+
+=over 
+
+=item B<-d>
+
+debug mode
+
+=item B<-x>
+
+dump configuration settings
+
+=item B<-q>
+
+quiet mode
+
+=item B<-c> cfg.xml
+
+use additional configuration file cfg.xml
+
+=item B<-l> lang
+
+the language to use for user information
+
+=back
+
+=head1 INPUT
+
+=over
+
+=item B<infile>
+
+xsl:fo input file (the same as the next)
+
+=item B<-fo>  infile
+
+xsl:fo input file
+
+=item B<-xml> infile
+
+xml input file, must be used together with -xsl
+
+=item B<-xsl> stylesheet
+
+xslt stylesheet
+
+=back
+
+=head1 OUTPUT
+
+=over
+
+=item B<outfile>
+
+input will be rendered as pdf file into outfile
+
+=item B<-pdf> outfile
+
+input will be rendered as pdf file (outfile req'd)
+
+=item B<-awt>
+
+input will be displayed on screen
+
+=item B<-mif> outfile
+
+input will be rendered as mif file (outfile req'd)
+
+=item B<-pcl> outfile
+
+input will be rendered as pcl file (outfile req'd)
+
+=item B<-txt> outfile
+
+input will be rendered as text file (outfile req'd)
+
+=item B<-print>
+
+input file will be rendered and sent to the printer
+qsee options with "-print help"
+
+=back
+
+=head1 EXAMPLES
+
+=over
+
+=item C<fop foo.fo foo.pdf>
+
+=item C<fop -fo foo.fo -pdf foo.pdf>
+
+does the same as the previous line
+
+=item C<fop -xsl foo.xsl -xml foo.xml -pdf foo.pdf>
+
+=item C<fop foo.fo -mif foo.mif>
+
+=item C<fop foo.fo -print>
+
+=item C<fop -print foo.fo>
+
+does the same as the previous line
+
+=item C<fop foo.fo -awt>
+
+=back
+
+=head1 HYPENATION
+
+B<fop> can make use of external hyphenation rules that can be supplied
+in the form of a B<hyphenation jar>. You can find such a one at
+I<http://offo.sourceforge.net/>.
+
+To actually use that, set the B<FOP_HYPHENATION_PATH> environment
+variable to the full path of this file, or use configuration files,
+see below.
+
+=head1 CONFIGURATION FILES
+
+B<fop> reads two configuration files on startup: I</etc/fop.conf> and
+I<$HOME/.foprc>. These are plain shell script files where you can
+define for instance the B<FOP_HYPHENATION_PATH> variable.
+
+=head1 JAVA-WRAPPERS NOTE
+
+This program is a shell script wrapper based on
+B<java-wrappers>(7).
+You therefore benefit from several features; please see the 
+B<java-wrappers>(7)
+manual page for more information about them.
+
+=head1 AUTHOR
+
+Wrapper author: Ola Lundqvist <opal@debian.org>
+
+=head1 SEE ALSO
+
+B<fop-ttfreader>(1), B<java-wrappers>(7)
+
+=cut

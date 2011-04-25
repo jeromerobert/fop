@@ -1,0 +1,51 @@
+Source: fop
+Section: text
+Priority: optional
+Maintainer: Debian Java Maintainers <pkg-java-maintainers@lists.alioth.debian.org>
+DM-Upload-Allowed: yes
+Uploaders: Michael Koch <konqueror@gmx.de>, Sylvestre Ledru <sylvestre@debian.org>,
+ Vincent Fourmond <fourmond@debian.org>, Torsten Werner <twerner@debian.org>,
+ Mathieu Malaterre <mathieu.malaterre@gmail.com>
+Build-Depends: debhelper (>= 5), cdbs (>= 0.4.27)
+Build-Depends-Indep: ant-optional, libbatik-java (>= 1.7),
+ libavalon-framework-java (>=4.1.2-2), libxalan2-java,
+ libxerces2-java, default-jdk, libcommons-io-java,
+ libcommons-logging-java, junit, libxmlgraphics-commons-java (>= 1.4),
+ libservlet2.4-java, libxml-commons-external-java, maven-repo-helper
+Standards-Version: 3.9.1
+Homepage: http://xmlgraphics.apache.org/fop/
+Vcs-Svn: svn://svn.debian.org/svn/pkg-java/trunk/fop
+Vcs-Browser: http://svn.debian.org/viewsvn/pkg-java/trunk/fop/
+
+Package: fop
+Architecture: all
+Depends: default-jre-headless | java2-runtime-headless,
+ libxerces2-java, libxalan2-java, libbsf-java,
+ libavalon-framework-java (>=4.1.2-2), libbatik-java (>= 1.7),
+ libcommons-io-java, libcommons-logging-java, libxp6, libxt6,
+ libxtst6, libxmlgraphics-commons-java (>= 1.4),
+ java-wrappers (>= 0.1.15), libxml-commons-external-java,
+ ${misc:Depends}
+Recommends: libsaxon-java
+Suggests: fop-doc, libservlet2.4-java
+Replaces: libfop-java
+Description: XML to PDF Translator
+ FOP is a print formatter driven by XSL formatting objects.
+ It is a Java application that reads a formatting object
+ tree and then turns it into a PDF document. The formatting
+ object tree can be in the form of an XML document (output by
+ an XSLT engine like xalan) or can be passed in memory as a DOM
+ Document or (in the case of xalan) SAX events.
+
+Package: fop-doc
+Section: doc
+Architecture: all
+Replaces: libfop-java-doc
+Depends:  ${misc:Depends}
+Description: Documentation for fop
+ FOP is a print formatter driven by XSL formatting objects.
+ It is a Java 1.1 application that reads a formatting object
+ tree and then turns it into a PDF document. The formatting
+ object tree can be in the form of an XML document (output by
+ an XSLT engine like xalan) or can be passed in memory as a DOM
+ Document or (in the case of xalan) SAX events.

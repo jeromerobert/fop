@@ -1,0 +1,4 @@
+version=3
+opts=dversionmangle=s/\.dfsg// \
+http://www.apache.org/dist/xmlgraphics/fop/source/fop-([\d\.]+)-src.tar.gz \
+debian debian/orig-tar.sh

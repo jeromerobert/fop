@@ -1,0 +1,14 @@
+Description: Avoid StackOverflow on TableColumn.toString() during debugging.
+Author: Mathieu Malaterre <mathieu.malaterre@gmail.com>
+Bug: http://svn.apache.org/viewvc/xmlgraphics/fop/trunk/src/java/org/apache/fop/fo/flow/table/TableColumn.java?r1=670335&r2=670334&pathrev=670335
+--- trunk/src/java/org/apache/fop/fo/flow/table/TableColumn.java	2008/06/22 10:37:24	670334
++++ trunk/src/java/org/apache/fop/fo/flow/table/TableColumn.java	2008/06/22 10:53:51	670335
+@@ -239,7 +239,7 @@
+             sb.append(" number-columns-spanned=")
+                 .append(getNumberColumnsSpanned());
+         }
+-        sb.append(" column-width=").append(getColumnWidth());
++        sb.append(" column-width=").append(((Property)getColumnWidth()).getString());
+         return sb.toString();
+     }
+

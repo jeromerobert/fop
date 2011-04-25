@@ -1,0 +1,29 @@
+Description: Fix segfaults on anchors
+Author: Mathieu Malaterre <mathieu.malaterre@gmail.com>
+Bug: https://issues.apache.org/bugzilla/show_bug.cgi?id=46386
+Index: fop-0.95.dfsg/src/java/org/apache/fop/layoutmgr/inline/InlineStackingLayoutManager.java
+===================================================================
+--- fop-0.95.dfsg.orig/src/java/org/apache/fop/layoutmgr/inline/InlineStackingLayoutManager.java	2008-07-31 16:02:58.000000000 +0200
++++ fop-0.95.dfsg/src/java/org/apache/fop/layoutmgr/inline/InlineStackingLayoutManager.java	2010-03-06 21:02:05.535650523 +0100
+@@ -331,6 +331,11 @@
+         while (oldListIterator.hasNext()) {
+             oldElement = (KnuthElement) oldListIterator.next();
+             currLM = (InlineLevelLayoutManager) oldElement.getLayoutManager();
++            // This can occur if a fo:inline element is empty but has an id
++            // attribute on it.  Punt in that case.
++            if (currLM == null) {
++            	continue;
++            }
+             // initialize prevLM
+             if (prevLM == null) {
+                 prevLM = currLM;
+@@ -400,6 +405,9 @@
+         while (oldListIterator.hasNext()) {
+             oldElement = (KnuthElement) oldListIterator.next();
+             currLM = (InlineLevelLayoutManager) oldElement.getLayoutManager();
++            if (currLM == null) {
++            	continue;
++            }
+             if (prevLM == null) {
+                 prevLM = currLM;
+             }

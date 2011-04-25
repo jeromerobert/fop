@@ -1,0 +1,24 @@
+Format-Specification: http://dep.debian.net/deps/dep5/
+Name: fop
+Maintainer: James Tauber <jtauber@jtauber.com>
+Source: http://xmlgraphics.apache.org/fop/
+
+Copyright: 2005-2007, The Apache Software Foundation
+License: Apache Software License version 2.0
+ On Debian systems the full text of the Apache Software License version
+ 2.0 can be found in the `/usr/share/common-licenses/Apache-2.0' file.
+
+Files: debian/*
+Copyright: 2001-2010, Ola Lundqvist <opal@debian.org>
+License: Apache Software License version 2.0
+ On Debian systems the full text of the Apache Software License version
+ 2.0 can be found in the `/usr/share/common-licenses/Apache-2.0' file.
+
+Files: debian/pom.xml
+Copyright: 2005-2007, The Apache Software Foundation
+License: Apache Software License version 2.0
+ pom.xml file has been downloaded from
+ http://mirrors.ibiblio.org/pub/mirrors/maven2/org/apache/xmlgraphics/fop/0.95/fop-0.95.pom
+ On Debian systems the full text of the Apache Software License version
+ 2.0 can be found in the `/usr/share/common-licenses/Apache-2.0' file.
+

@@ -1,0 +1,392 @@
+fop (1:1.0.dfsg-3) experimental; urgency=low
+
+  * Upload with the explicit dependency against xmlgraphics-commons on the fop
+    binary package (Closes: #594719)
+  * Standards-Version updated to version 3.9.1
+
+  [ Mathieu Malaterre ]
+  * Race condition in using ICC_Profile from java awt. Closes: #589624
+  * footnote inside varlistentry is not rendered in PDF. Closes: #451258
+
+ -- Sylvestre Ledru <sylvestre@debian.org>  Sun, 12 Sep 2010 13:20:26 +0200
+
+fop (1:1.0.dfsg-2) experimental; urgency=low
+
+  * fop 1.0 requires xmlgraphics-commons >= 1.4
+
+ -- Mathieu Malaterre <mathieu.malaterre@gmail.com>  Mon, 19 Jul 2010 10:07:53 +0200
+
+fop (1:1.0.dfsg-1) experimental; urgency=low
+
+  * New upstream. Closes: #588895
+
+ -- Mathieu Malaterre <mathieu.malaterre@gmail.com>  Fri, 09 Jul 2010 17:50:05 +0200
+
+fop (1:0.95.dfsg-11) unstable; urgency=low
+
+  * Fix StackOverflowError in Java. Closes: #577069
+
+ -- Mathieu Malaterre <mathieu.malaterre@gmail.com>  Mon, 12 Apr 2010 09:53:37 +0200
+
+fop (1:0.95.dfsg-10) unstable; urgency=low
+
+  * Pull in new patch from Mathieu Malaterre <mathieu.malaterre@gmail.com>
+    to really fix the segfaults with anchors (closes: #570095)
+  * Drop dependency on headed packages (closes: #551294)
+  * Refreshed old patches and switch to using the full 3.0 (quilt) power
+
+ -- Vincent Fourmond <fourmond@debian.org>  Sat, 06 Mar 2010 21:02:37 +0100
+
+fop (1:0.95.dfsg-9) unstable; urgency=low
+
+  * Added Maven support
+  * d/copyright:
+    - converted to DEP5 format
+    - added debian/pom.xml section
+  * Fixed Vcs-Svn field
+  * Standards-Version to 3.8.4
+  * Source format 3.0 (quilt)
+  * Removed Arnaud Vandyck from Uploaders
+
+ -- Gabriele Giacone <1o5g4r8o@gmail.com>  Sun, 21 Feb 2010 16:25:33 +0100
+
+fop (1:0.95.dfsg-8) experimental; urgency=low
+
+  * Added 02_fix_segfault_with_anchors, patch courtesy of Brian M. Carlson
+    <sandals@crustytoothpaste.ath.cx> to stop fop from choking on
+    anchors. (closes: #570095)
+
+ -- Vincent Fourmond <fourmond@debian.org>  Thu, 18 Feb 2010 22:27:52 +0100
+
+fop (1:0.95.dfsg-7) unstable; urgency=low
+
+  * Change of my email address since I am DD
+  * Updated Standards-Version to 3.8.3
+  * openjdk-6-jdk => default-jdk (build)
+  * openjdk-6-jre => default-jre (runtime)
+  * DM-Upload-Allowed removed
+
+ -- Sylvestre Ledru <sylvestre@debian.org>  Sat, 28 Nov 2009 10:28:06 +0100
+
+fop (1:0.95.dfsg-6) unstable; urgency=low
+
+  * Add support for reading configuration files in the wrapper script.
+    (again: closes: #526092)
+
+ -- Vincent Fourmond <fourmond@debian.org>  Tue, 12 May 2009 22:46:51 +0200
+
+fop (1:0.95.dfsg-5) unstable; urgency=low
+
+  [ Onkar Shinde ]
+  * debian/patches
+    - 01_from_svn_16_bit_alpha_png.patch - Change from upstream svn to fix
+      reading of .png files with 16-bit alpha channel. (Closes: #524883)
+  * debian/README.Debian
+    - fop no longer uses/supports JIMI/JAI image processing libraries. Remove
+      sections from readme that mention JIMI/JAI. (Closes: #523170)
+
+  [ Vincent Fourmond ]
+  * fop can again make use of hyphenation jars (closes: #526092). Thanks
+    to Paul Millar <paul.millar@desy.de> for explaining the problem and
+    providing the solution.
+  * Tighten dependency on java-wrappers, as only version 0.1.15 provides
+    non-buggy support for absolute path in find_jars
+  * Already conforms to standards 3.8.1
+
+ -- Vincent Fourmond <fourmond@debian.org>  Mon, 11 May 2009 21:21:39 +0200
+
+fop (1:0.95.dfsg-4) unstable; urgency=low
+
+  * Recommends libsaxon-java in order to process png files 
+    (Closes: #508400)
+  * debian/libfop-java* removed (replaced by fop)
+  * conf/fop.xconf is now installed in /usr/share/doc/fop (Closes: #498629)
+
+ -- Sylvestre Ledru <sylvestre.ledru@inria.fr>  Fri, 27 Feb 2009 15:47:17 +0100
+
+fop (1:0.95.dfsg-3) unstable; urgency=low
+
+  * Time for an upload in unstable
+
+ -- Sylvestre Ledru <sylvestre.ledru@inria.fr>  Sat, 21 Feb 2009 12:37:07 +0100
+
+fop (1:0.95.dfsg-2) experimental; urgency=low
+
+  * Tighten up depencies on libxmlgraphics-commons-java and add xml-apis-ext
+    to the wrapper script (closes: #505582)
+  * Depends on libxml-commons-external-java use openjdk-jre-6 as
+    'preferred' JVM (I'm not sure it will run on non-Sun runtime), thanks 
+    to Kobayashi Noritada <nori1@dolphin.c.u-tokyo.ac.jp> for spotting and for 
+    advice (closes: 508485)
+  * Add ${misc:Depends} for possible dh_*-added dependencies, with 
+    the side benefits that it makes lintian happy !
+
+ -- Vincent Fourmond <fourmond@debian.org>  Thu, 11 Dec 2008 21:09:32 +0100
+
+fop (1:0.95.dfsg-1) experimental; urgency=low
+
+  [ Sylvestre Ledru ]
+  * New upstream version (Closes: #494041)
+  * Section change in fop-doc.doc-base from contrib/libs => Text to make 
+    lintian happier
+  * Dependencies removed (Closes: #229079, #271654)
+  * Update of the JAVA_HOME in debian/ant.properties (Closes: #492322)
+  * Updated Standards-Version to 3.8.0
+  * Homepage, Vcs-Svn, Vcs-Browser & DM-Upload-Allowed added
+  * Switch to openJDK
+  * Script orig-tar.sh to repack the archive (rm -rf lib/*)
+  * Update of the copyright file (fop changed to Apache 2)
+  * Add myself as uploader.
+
+  [ Michael Koch ]
+  * Fixed watch file for changed upstream location.
+
+  [ Vincent Fourmond ]
+  * Added myself to uploaders
+  * There are no reasons to keep fop in contrib now that batik and
+    xml-graphics-common are in main
+  * Tighten up dependencies of fop on batik 1.7
+  * Convert fop.sh to java-wrappers
+
+  [ Torsten Werner ]
+  * Implement target get-orig-source in debian/rules.
+  * Add myself to Uploaders.
+  * Update Build-Depends: libxmlgraphics-commons-java (>= 1.3).
+  * Fix debian/*.pod files.
+  * Fix versioned Depends: java-wrappers.
+
+  [ Vincent Fourmond ]
+  * Convert fop-ttfreader.sh to java-wrappers
+  * Updated all manual pages so they now reference java-wrappers(7)
+
+ -- Vincent Fourmond <fourmond@debian.org>  Sat, 18 Oct 2008 20:43:44 +0200
+
+fop (1:0.94.dfsg-2) unstable; urgency=low
+
+  * Fixed name of versioned jar.
+
+ -- Michael Koch <konqueror@gmx.de>  Thu, 31 Jan 2008 20:29:07 +0100
+
+fop (1:0.94.dfsg-1) unstable; urgency=low
+
+  * New upstream version. Closes: #445349.
+  * Moved debhelper and cdbs from Build-Depends-Indep to Build-Depends.
+  * Removed Build-Depends on ibm-j2sdk1.5.
+  * Moved fop-doc package to contrib/doc section.
+  * Improved abstract in debian/fop-doc.doc-base.
+  * Updated Standards-Version to 3.7.3.
+  * Updated debhelper level to 5.
+  * Added myself to Uploaders.
+  * Added watch file.
+
+ -- Michael Koch <konqueror@gmx.de>  Sat, 01 Dec 2007 01:20:31 +0100
+
+fop (1:0.93.dfsg.1-2) unstable; urgency=low
+
+  * debian/fop-ttfreader.sh: updated to include commons-logging and
+    commons-io (closes: #426476). Thanks to Michalis Kamburelis
+
+ -- Arnaud Vandyck <avdyk@debian.org>  Tue, 29 May 2007 21:37:55 +0200
+
+fop (1:0.93.dfsg.1-1) unstable; urgency=low
+
+  * New upstream (closes: #349376, #406109)
+  * fop shell script comes with java.awt.headless set to true (closes:
+    #407018)
+  * debian/fop.sh: rework with the one from upstream
+  * Removed Ola Lundqvist, Takashi Okamoto, Stefan Gybas and Wolfgang Baer
+    from uploaders (closes: #374117)
+  * Updated Standards Version to 3.7.2, no change needed
+  * added dependencies to libxp6, libxt6, and libxtst6 so no X environment
+    is needed (closes: #363556)
+  * debian/README.Debian updated to reflect changes regarding JIMI, thanks
+    to Massimo Manghi (closes: #354086)
+  * debian/README.Debian: changed the url to download jai
+  * debian/control: Section: contrib/text
+
+ -- Arnaud Vandyck <avdyk@debian.org>  Thu, 10 May 2007 16:38:27 +0200
+
+fop (1:0.20.5-8) unstable; urgency=low
+
+  * added a wrapper script for ttfreader called fop-ttfreader. I also
+    added a manpage (closes: 292656).
+  * corrected the manpage (closes: 269657).
+
+ -- Arnaud Vandyck <avdyk@debian.org>  Fri, 14 Oct 2005 11:23:16 +0200
+
+fop (1:0.20.5-7) unstable; urgency=low
+
+  * debian/README.Debian: improved, thanks to Gordon Haverland (closes:
+    300884)
+  * debian/rules: set JAVA_HOME_DIRS with directories supported by
+    java-package, thanks to Andreas Jochens (closes: 306774)
+  * built with JAI support, see README.Debian (closes: 286433)
+
+ -- Arnaud Vandyck <avdyk@debian.org>  Fri, 14 Oct 2005 10:22:07 +0200
+
+fop (1:0.20.5-6) unstable; urgency=low
+
+  * ant transition (also added ant-optional)
+  * Standards-Version upgraded to 3.6.2, no changes
+
+ -- Arnaud Vandyck <avdyk@debian.org>  Thu, 13 Oct 2005 13:59:08 +0200
+
+fop (1:0.20.5-5) unstable; urgency=low
+
+  * Patched to compile against libbatik-java 1.5.1
+    updated build-depends to reflect this
+  * Build with jdk1.4 - therefore encryption support enabled (closes: 284634)
+  * Moved from ant to libant1.6-java build-dependency
+  * Use libxerces2-java instead of libxerces-java (closes: 298525)
+  * Removed conflicts with libfop-java and libfop-java-doc (closes: 251270)
+  * avdyk: added Wolfgang to the uploaders
+  
+ -- Wolfgang Baer <WBaer@gmx.de>  Fri, 11 Mar 2005 11:09:13 +0100
+
+fop (1:0.20.5-4) unstable; urgency=low
+
+  * debian/changelog: The bug was not 210151 but 220151!
+  * README: corrected the url (closes: 220151).
+
+ -- Arnaud Vandyck <avdyk@debian.org>  Wed,  7 Jan 2004 18:40:11 +0100
+
+fop (1:0.20.5-3) unstable; urgency=low
+
+  * From libfop-java(-doc) to fop(-doc) and also from contrib/libs to
+    contrib/text (closes: 220237).
+  * debian/README.Debian: explain that I built fop with jimi support
+  * debian/ant.properties: commented the runtime.classpath line
+  * debian/control: modified the compiler
+  * debian/rules:
+    - cdbs include /usr/share/cdbs/1/rules/simple-patchsys.mk
+    - added /usr/local/jimi-1.0.jar in the classpath so fop is now
+      build with jimi support (closes: 180492). See README.Debian!
+  * README: corrected the url (closes: 210151).
+  * debian/libfop-java-doc.doc-base: registered the html documentation
+    (closes: 107782).
+
+ -- Arnaud Vandyck <avdyk@debian.org>  Tue, 16 Dec 2003 00:13:04 +0100
+
+fop (1:0.20.5-2) unstable; urgency=low
+
+  * debian/ant.properties:
+    - New file. I added a property to change the Class-Path in the
+    MANIFEST.MF file in the built jar. Jars in this file are no more
+    versionned (closes: #200412).
+  * debian/README.Debian:
+    - Added a note about Jimi (closes: #194806).
+
+ -- Arnaud Vandyck <avdyk@debian.org>  Tue,  4 Nov 2003 00:13:17 +0100
+
+fop (1:0.20.5-1) unstable; urgency=low
+
+  * New upstream release
+  * changed the version dependency of libavalon-framework-java
+    (Closes: #194056)
+  * using CDBS to build the package.
+  * Maintainer are Debian Java Maintainers, uploaders: Ola Lundqvist
+    <opal@debian.org>, Takashi Okamoto <tora@debian.org>, Stefan Gybas
+    <sgybas@debian.org>, Arnaud Vandyck <avdyk@debian.org>
+
+ -- Arnaud Vandyck <avdyk@debian.org>  Sat, 25 Oct 2003 15:32:04 +0200
+
+fop (1:0.20.4-0.1) unstable; urgency=low
+
+  * NMU.
+  * New upstream version. (Closes: #153864)
+  * Depends on libbatik-java (Closes: #138109, #139291, #156663)
+  * Corrected typo in depends (Closes: #145780)
+  * Nope we can't use xerces2 (Closes: #144028)
+  * Allow making Java virtual memory configurable.  Put instructions in
+    README.Debian (Closes: #146358)
+  * removed libfop-java-apidoc as upstream doesn't seem to build it anymore.
+  * Fixed missing NAME section in man page.
+  * changed debian/rules and debian/control to build with j2sdk 1.4
+
+ -- Jaldhar H. Vyas <jaldhar@debian.org>  Thu, 16 Jan 2003 11:17:16 -0500
+
+fop (1:0.20.3-1) unstable; urgency=low
+
+  * New upstream version.
+  * Better documentation and run script, closes: #132676.
+  * Fixed lintian errors.
+
+ -- Ola Lundqvist <opal@debian.org>  Mon,  4 Mar 2002 18:44:21 +0100
+
+fop (0.20.3rc-1) unstable; urgency=low
+
+  * New upstream release, closes: #132045.
+  * Fixed kaffe issue. Thanks to Colin Walters <walters@debian.org>
+    for the patch, closes: #129058.
+  * Updated README.Debian file, closes: #118166.
+
+ -- Ola Lundqvist <opal@debian.org>  Tue,  5 Feb 2002 22:16:05 +0100
+
+fop (0.20.1-1) unstable; urgency=low
+
+  * New upstream version, closes: #103422, #110799.
+  * Nenamed the packages to fit the new proposed java policy.
+  * Created command line tool with manpage, closes: #53771.
+  * Fixed dependencies: closes: #103424, #114081.
+
+ -- Ola Lundqvist <opal@debian.org>  Wed, 15 Oct 2001 15:29:48 +0200
+
+lib-fop-java (0.17.0-2) unstable; urgency=low
+
+  * Now source is uploaded too.
+  * XT is updated, closes: #53769.
+  * All previous bugs seems unclosed,
+    closes: #85301, #53770, #61548, #78681, #49688, #49686, #49687, #65442.
+
+ -- Ola Lundqvist <opal@debian.org>  Mon, 16 Apr 2001 12:31:31 +0200
+
+lib-fop-java (0.17.0-1) unstable; urgency=low
+
+  * Updated to a new version, closes: Bug#85301, #53770, #61548.
+  * Changed maintainer, closes: Bug#78681.
+  * Now compiles from source. But still depends on some other packages
+    that are inside this package, closes: Bug#49688.
+  * Added documentation, closes: Bug#49686.
+  * New dependencies, closes: Bug#49687.
+  * Fixed copyright file, closes: Bug#65442.
+
+ -- Ola Lundqvist <opal@debian.org>  Mon, 09 Apr 2001 15:14:01 +0200
+
+lib-fop-java (0.11.0-1.2) unstable; urgency=low
+
+  * Correct maintainer address.
+
+ -- Matthias Klose <doko@cs.tu-berlin.de>  Thu,  1 Jun 2000 07:49:29 +0200
+
+lib-fop-java (0.11.0-1.1) unstable; urgency=low
+
+  * Upload to potato/unstable.
+
+ -- Matthias Klose <doko@cs.tu-berlin.de>  Sun,  7 Nov 1999 20:29:52 +0100
+
+lib-fop-java (0.11.0-1) unstable; urgency=low
+
+  * Upgraded version
+
+ -- Julio Maia <julio@pobox.com>  Wed,  3 Nov 1999 23:32:56 -0200
+
+lib-fop-java (0.10.0-2.1) unstable; urgency=low
+
+  * First upload to unstable.
+  * debian/copyright: Trimmed to 80 cols.
+
+ -- Matthias Klose <doko@cs.tu-berlin.de>  Mon, 27 Sep 1999 00:48:13 +0200
+
+lib-fop-java (0.10.0-2) unstable; urgency=low
+
+  * Set debian/rules to work directly with fop_0_10_0.jar, fop_0_10_0_source.jar (the original distribution files) besides the html dir that mirrors FOP's website.
+
+ -- Julio Maia <julio@pobox.com>  Thu, 23 Sep 1999 00:40:39 -0300
+
+lib-fop-java (0.10.0-1) unstable; urgency=low
+
+  * Initial Release.
+
+ -- Julio Maia <julio@pobox.com>  Fri, 17 Sep 1999 00:38:11 -0300
+
+

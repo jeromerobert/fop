@@ -1,0 +1,44 @@
+#!/usr/bin/make -f
+# debian/rules for FOP (uses CDBS)
+
+include /usr/share/cdbs/1/rules/debhelper.mk
+# include /usr/share/cdbs/1/rules/simple-patchsys.mk
+include /usr/share/cdbs/1/class/ant.mk
+
+JAVA_HOME            := /usr/lib/jvm/java-6-openjdk
+DEB_JARS             := $(ANT_HOME)/lib/ant-trax.jar batik-all xml-apis-ext batik-libs xml-apis avalon-framework xercesImpl xmlParserAPIs xalan2 junit commons-io commons-logging xmlgraphics-commons servlet-api-2.4
+DEB_ANT_BUILD_TARGET := package javadocs #docs
+DEB_ANT_CLEAN_TARGET := distclean
+DEB_ANT_ARGS := -verbose
+DEB_COMPRESS_EXCLUDE := .xconf
+
+DOCD=debian/fop-doc/usr/share/doc/fop-doc
+
+install/fop::
+	mh_installpom -pfop $(CURDIR)/debian/pom.xml
+	mh_installjar -pfop -l $(CURDIR)/debian/pom.xml \
+		$(CURDIR)/build/fop.jar
+
+	cp -a debian/fop.sh debian/fop/usr/bin/fop
+	cp -a debian/fop-ttfreader.sh debian/fop/usr/bin/fop-ttfreader
+	pod2man --section=1 \
+		--release="Fop " \
+		--date="`date`" \
+		debian/fop.pod > build/fop.1
+
+	pod2man --section=1 \
+		--release="Fop-TTFReader " \
+		--date="`date`" \
+		debian/fop-ttfreader.pod > build/fop-ttfreader.1
+
+install/fop-doc::
+	-mkdir -p debian/fop-doc/usr/share/doc/fop-doc/html/api
+	#No documentation at the moment... FORREST needed
+	#cp -a build/docs/* html/
+	cp -a build/javadocs/* debian/fop-doc/usr/share/doc/fop-doc/html/api/
+
+clean::
+	-rm -Rf build
+
+get-orig-source:
+	uscan --force-download --rename

@@ -1,0 +1,63 @@
+=head1 NAME
+
+fop-ttfreader --  A tool which reads TTF files and generates XML font metrics file for use in FOP.
+
+
+=head1 SYNOPSIS
+
+B<fop-ttfreader> [options] F<fontfile.ttf> F<xmlfile.xml>
+
+=head1 OPTIONS
+
+=over
+
+=item B<-enc> ansi
+
+with this option you can create a WinAnsi encoded font. The default is
+to create a CID keyed font.  If you're not going to use characters
+outside the pdfencoding range (almost the same as iso-8889-1) you can
+add this option.
+
+=item B<-ttcname> fontname
+
+if you're reading data from TrueType Collection (.ttc file) you must
+specify which font from the collection you will read metrics from. If
+you read from a .ttc file without this option, the fontnames will be
+listed for you.
+
+=item B<-fn> fontname
+
+default is to use the fontname in the .ttf file, but you can override
+that name to make sure that the embedded font is used (if you're
+embedding fonts) instead of installed fonts when viewing documents with
+Acrobat Reader.
+
+=back
+
+=head1 EXAMPLES
+
+=over
+
+=item C<fop-ttfreader /usr/share/fonts/truetype/freefont/FreeSerif.ttf freeserif.xml>
+
+generates freeserif.xml file containing XML font metrics from FreeSerif.ttf
+
+=back
+
+=head1 JAVA-WRAPPERS NOTE
+
+This program is a shell script wrapper based on
+B<java-wrappers>(7).
+You therefore benefit from several features; please see the 
+B<java-wrappers>(7)
+manual page for more information about them.
+
+=head1 AUTHOR
+
+Wrapper author: Arnaud Vandyck <avdyk@debian.org>
+
+=head1 SEE ALSO
+
+B<fop>(1), B<java-wrappers>(7)
+
+=cut
