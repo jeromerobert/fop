@@ -35,6 +35,7 @@ import org.apache.fop.fo.properties.CommonBorderPaddingBackground.BorderInfo;
 import org.apache.fop.fonts.Font;
 import org.apache.fop.traits.BorderProps;
 import org.apache.fop.traits.MinOptMax;
+import org.apache.fop.traits.Visibility;
 
 /**
  * This is a helper class used for setting common traits on areas.
@@ -611,5 +612,20 @@ public final class TraitSetter {
         if (id != null && id.length() > 0) {
             area.addTrait(Trait.PROD_ID, id);
         }
+    }
+
+    public static void setVisibility(Area area, int visibility) {
+        Visibility v;
+        switch (visibility) {
+            case Constants.EN_COLLAPSE:
+                v = Visibility.COLLAPSE;
+                break;
+            case Constants.EN_HIDDEN:
+                v = Visibility.HIDDEN;
+                break;
+            default:
+                v = Visibility.VISIBLE;
+        }
+        area.addTrait(Trait.VISIBILITY, v);
     }
 }

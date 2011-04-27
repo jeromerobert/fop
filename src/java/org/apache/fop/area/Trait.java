@@ -26,6 +26,7 @@ import org.apache.xmlgraphics.image.loader.ImageInfo;
 
 import org.apache.fop.fonts.FontTriplet;
 import org.apache.fop.traits.BorderProps;
+import org.apache.fop.traits.Visibility;
 import org.apache.fop.util.ColorUtil;
 
 import static org.apache.fop.fo.Constants.EN_REPEAT;
@@ -156,8 +157,11 @@ public final class Trait implements Serializable {
     /** The ptr trait. Used for accessibility   */
     public static final Integer PTR = 37;
 
+    /** Used to disable the rendering of a Block http://www.w3.org/TR/xsl/#rend-vis */
+    public static final Integer VISIBILITY = 38;
+
     /** Maximum value used by trait keys */
-    public static final int MAX_TRAIT_KEY = 37;
+    public static final int MAX_TRAIT_KEY = 38;
 
     private static final TraitInfo[] TRAIT_INFO = new TraitInfo[MAX_TRAIT_KEY + 1];
 
@@ -221,6 +225,7 @@ public final class Trait implements Serializable {
         put(SPACE_AFTER,    new TraitInfo("space-after", Integer.class));
         put(IS_REFERENCE_AREA,  new TraitInfo("is-reference-area", Boolean.class));
         put(IS_VIEWPORT_AREA,   new TraitInfo("is-viewport-area", Boolean.class));
+        put(VISIBILITY, new TraitInfo("visibility", Visibility.class));
 
     }
 

@@ -332,6 +332,7 @@ public class BlockLayoutManager extends BlockStackingLayoutManager
         TraitSetter.addPtr(curBlockArea, getBlockFO().getPtr());  // used for accessibility
         TraitSetter.addSpaceBeforeAfter(curBlockArea, layoutContext.getSpaceAdjust(),
                 effSpaceBefore, effSpaceAfter);
+        TraitSetter.setVisibility(curBlockArea, getBlockFO().getVisibility());
         flush();
 
         curBlockArea = null;
