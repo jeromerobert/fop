@@ -1,3 +1,11 @@
+fop (1:1.0.svn1097807-0jerome1) unstable; urgency=low
+
+  * upload to https://launchpad.net/~jeromerobert/+archive/misc
+  * New upstream svn export
+  * Add a fix for https://issues.apache.org/bugzilla/show_bug.cgi?id=18801
+
+ -- Jerome Robert <jeromerobert@gmx.com>  Sat, 30 Apr 2011 10:29:58 +0200
+
 fop (1:1.0.dfsg-3) experimental; urgency=low
 
   * Upload with the explicit dependency against xmlgraphics-commons on the fop
