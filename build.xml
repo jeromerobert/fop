@@ -120,7 +120,7 @@ list of possible build targets.
       <include name="*.jar"/>
     </fileset>
   </path>
-  <property name="lib-tools" value="${basedir}/lib/build"/>
+  <property name="lib-tools" value="${basedir}/lib"/>
   <path id="libs-tools-build-classpath">
     <path refid="libs-build-classpath"/>
     <fileset dir="${lib-tools}">
