@@ -1,0 +1,11 @@
+build/
+debian/.mh/
+debian/files
+debian/fop-doc.debhelper.log
+debian/fop-doc.substvars
+debian/fop-doc/
+debian/fop.debhelper.log
+debian/fop.substvars
+debian/fop/
+debian/stamp-ant-build
+
