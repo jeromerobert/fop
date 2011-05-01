@@ -7,10 +7,10 @@ Uploaders: Michael Koch <konqueror@gmx.de>, Sylvestre Ledru <sylvestre@debian.or
  Vincent Fourmond <fourmond@debian.org>, Torsten Werner <twerner@debian.org>,
  Mathieu Malaterre <mathieu.malaterre@gmail.com>
 Build-Depends: debhelper (>= 5), cdbs (>= 0.4.27)
-Build-Depends-Indep: ant-optional, libbatik-java (>= 1.7),
+Build-Depends-Indep: ant-optional, libbatik-java (>= 1.7), libqdox-java (>=1.12),
  libavalon-framework-java (>=4.1.2-2), libxalan2-java,
- libxerces2-java, default-jdk, libcommons-io-java,
- libcommons-logging-java, junit, libxmlgraphics-commons-java (>= 1.4),
+ libxerces2-java, java6-sdk, libcommons-io-java,
+ libcommons-logging-java, junit, libxmlgraphics-commons-java (>> 1.4),
  libservlet2.4-java, libxml-commons-external-java, maven-repo-helper
 Standards-Version: 3.9.1
 Homepage: http://xmlgraphics.apache.org/fop/
