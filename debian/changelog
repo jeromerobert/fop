@@ -1,3 +1,10 @@
+fop (1:1.1~svn1101050-0jerome1) unstable; urgency=low
+
+  * New upstream release
+  * Fix package version
+
+ -- Jerome Robert <jeromerobert@gmx.com>  Sun, 15 May 2011 20:04:43 +0200
+
 fop (1:1.0.svn1097807-0jerome3) unstable; urgency=low
 
   * upload to https://launchpad.net/~jeromerobert/+archive/misc
