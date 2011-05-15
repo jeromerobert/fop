@@ -6,7 +6,7 @@ include /usr/share/cdbs/1/rules/debhelper.mk
 include /usr/share/cdbs/1/class/ant.mk
 
 JAVA_HOME_DIRS       := /usr/lib/jvm/default-java /usr/lib/jvm/java-6-sun/
-DEB_JARS             := $(ANT_HOME)/lib/ant-trax.jar batik-all xml-apis-ext batik-libs xml-apis avalon-framework xercesImpl xmlParserAPIs xalan2 junit commons-io commons-logging xmlgraphics-commons servlet-api-2.4
+DEB_JARS             := $(ANT_HOME)/lib/ant-nodeps.jar $(ANT_HOME)/lib/ant-trax.jar batik-all xml-apis-ext batik-libs xml-apis avalon-framework xercesImpl xmlParserAPIs xalan2 junit commons-io commons-logging xmlgraphics-commons servlet-api-2.4
 DEB_ANT_BUILD_TARGET := package javadocs #docs
 DEB_ANT_CLEAN_TARGET := distclean
 DEB_ANT_ARGS := -verbose
