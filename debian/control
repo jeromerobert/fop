@@ -23,7 +23,7 @@ Depends: default-jre-headless | java2-runtime-headless,
  libxerces2-java, libxalan2-java, libbsf-java,
  libavalon-framework-java (>=4.1.2-2), libbatik-java (>= 1.7),
  libcommons-io-java, libcommons-logging-java, libxp6, libxt6,
- libxtst6, libxmlgraphics-commons-java (>= 1.4),
+ libxtst6, libxmlgraphics-commons-java (>= 1.5~svn1095897),
  java-wrappers (>= 0.1.15), libxml-commons-external-java,
  ${misc:Depends}
 Recommends: libsaxon-java
