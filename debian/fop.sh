@@ -16,6 +16,11 @@
 HEADLESS=-Djava.awt.headless=true
 
 
+for cf in /etc/fop.conf.d/*.conf; do
+    if [ -f $cf ]; then
+        . $cf;
+    fi
+done
 
 # Load system-wide configuration, if any
 if [ -f /etc/fop.conf ]; then
