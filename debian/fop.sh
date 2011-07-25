@@ -22,6 +22,12 @@ for cf in /etc/fop.conf.d/*.conf; do
     fi
 done
 
+# To override the default logging configuration, add a LOGGING line to
+# your fop configuration file. To disable logging altogether, set
+#  LOGGING=
+# in your configuration file.
+LOGGING="-Dorg.apache.commons.logging.Log=org.apache.commons.logging.impl.SimpleLog"
+
 # Load system-wide configuration, if any
 if [ -f /etc/fop.conf ]; then
     . /etc/fop.conf
@@ -47,4 +53,4 @@ find_jars fop
 
 
 
-run_java $HEADLESS org.apache.fop.cli.Main "$@"
+run_java $HEADLESS $LOGGING org.apache.fop.cli.Main "$@"

@@ -1,7 +1,8 @@
-fop (1:1.1~svn1141464-0jerome1) unstable; urgency=low
+fop (1:1.1~svn1144351-0jerome1) unstable; urgency=low
 
   * New upstream release
-  * Add /etc/fop.conf.d
+  * Add /etc/fop.conf.d (Closes: #630198)
+  * fop: log4j not initialized correctly (Closes: #575411)
   * Merge official debian changes
   * Add a fix for https://issues.apache.org/bugzilla/show_bug.cgi?id=18801
 
