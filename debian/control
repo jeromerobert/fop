@@ -15,7 +15,7 @@ Build-Depends-Indep: ant-optional, libbatik-java (>= 1.7),
  libcommons-logging-java, junit, libxmlgraphics-commons-java (>= 1.5~svn1095897),
  libservlet2.4-java, libxml-commons-external-java, maven-repo-helper,
  libqdox-java (>=1.12)
-Standards-Version: 3.9.1
+Standards-Version: 3.9.2
 Homepage: http://xmlgraphics.apache.org/fop/
 Vcs-Svn: svn://svn.debian.org/svn/pkg-java/trunk/fop
 Vcs-Browser: http://svn.debian.org/viewsvn/pkg-java/trunk/fop/
