@@ -1,4 +1,4 @@
-fop (1:1.1~svn1144351-0jerome1) unstable; urgency=low
+fop (1:1.1~svn1155396-0jerome1) unstable; urgency=low
 
   * New upstream release
   * Add /etc/fop.conf.d (Closes: #630198)
@@ -6,7 +6,7 @@ fop (1:1.1~svn1144351-0jerome1) unstable; urgency=low
   * Merge official debian changes
   * Add a fix for https://issues.apache.org/bugzilla/show_bug.cgi?id=18801
 
- -- Jerome Robert <jeromerobert@gmx.com>  Fri, 01 Jul 2011 20:16:49 +0200
+ -- Jerome Robert <jeromerobert@gmx.com>  Sat, 13 Aug 2011 17:19:24 +0200
 
 fop (1:1.0.dfsg-3) experimental; urgency=low
 
